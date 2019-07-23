@@ -6,6 +6,11 @@ class Counter extends Component {
     tags: ['tag1', 'tag2', 'tag3']
   };
 
+  renderTags(){
+    if (this.state.tags.length === 0) return <p>There are no tags!</p>;
+    return <ul> {this.state.tags.map(tag =><li key={tag}>{tag}</li>)} </ul>;
+  }
+
   render() {
 
     return (
@@ -13,7 +18,7 @@ class Counter extends Component {
         <span style={{fontSize:50}} className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button style={{fontSize:40}} className="btn btn-secondary btn-sm">Increment</button>
         <ul>
-          {this.state.tags.map(tag =><li key={tag}>{tag}</li>)}
+          {this.renderTags()}
         </ul>
       </div>
     );
