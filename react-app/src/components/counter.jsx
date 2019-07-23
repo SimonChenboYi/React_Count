@@ -18,6 +18,7 @@ class Counter extends Component {
         <span style={{fontSize:50}} className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button style={{fontSize:40}} className="btn btn-secondary btn-sm">Increment</button>
         <ul>
+          {this.state.tags.length === 0 && 'please create a new tag!'}
           {this.renderTags()}
         </ul>
       </div>
