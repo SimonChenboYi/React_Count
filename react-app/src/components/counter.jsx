@@ -2,23 +2,41 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 1,
-    tags: ['tag1', 'tag2', 'tag3']
+    count: 0,
+    tags: ["tag1", "tag2", "tag3"]
   };
 
-  renderTags(){
+  handleIncrement= () => {
+    this.setState({ count: this.state.count + 1 })
+  }
+
+  renderTags() {
     if (this.state.tags.length === 0) return <p>There are no tags!</p>;
-    return <ul> {this.state.tags.map(tag =><li key={tag}>{tag}</li>)} </ul>;
+    return (
+      <ul>
+        {" "}
+        {this.state.tags.map(tag => (
+          <li key={tag}>{tag}</li>
+        ))}{" "}
+      </ul>
+    );
   }
 
   render() {
-
     return (
       <div>
-        <span style={{fontSize:50}} className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button style={{fontSize:40}} className="btn btn-secondary btn-sm">Increment</button>
+        <span style={{ fontSize: 50 }} className={this.getBadgeClasses()}>
+          {this.formatCount()}
+        </span>
+        <button
+          onClick={this.handleIncrement}
+          style={{ fontSize: 40 }}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
         <ul>
-          {this.state.tags.length === 0 && 'please create a new tag!'}
+          {this.state.tags.length === 0 && "please create a new tag!"}
           {this.renderTags()}
         </ul>
       </div>
@@ -31,10 +49,10 @@ class Counter extends Component {
     return classes;
   }
 
-formatCount(){
-  const { count } = this.state;
-  return count === 0 ? <h1>Zero</h1>: count;
-}
+  formatCount() {
+    const { count } = this.state;
+    return count === 0 ? <h1>Zero</h1> : count;
+  }
 }
 
 export default Counter;
