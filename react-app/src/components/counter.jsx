@@ -22,6 +22,10 @@ class Counter extends Component {
     );
   }
 
+  handleIncrement = ()=> {
+    this.setState({ count: this.state.count+1 });
+  };
+
   render() {
     return (
       <div>
@@ -29,7 +33,7 @@ class Counter extends Component {
           {this.formatCount()}
         </span>
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.handleIncrement()}
           style={{ fontSize: 40 }}
           className="btn btn-secondary btn-sm"
         >
