@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    tags:["tag1", "tag2","tag3"]
-  }
+    tags: ["tag1", "tag2", "tag3"]
+  };
 
   renderTags() {
     if (this.state.tags.length === 0) return <p>There are no tags!</p>;
@@ -30,10 +30,10 @@ class Counter extends Component {
         >
           Increment
         </button>
-        <button 
-         onClick={() => this.props.onDelete(this.props.counter.id)}
-         style={{ fontSize: 40 }}
-         className="btn btn-secondary btn-sm"
+        <button
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+          style={{ fontSize: 40 }}
+          className="btn btn-secondary btn-sm"
         >
           Delete
         </button>
