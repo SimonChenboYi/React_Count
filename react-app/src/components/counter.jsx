@@ -11,7 +11,10 @@ class Counter extends Component {
       <ul>
         {" "}
         {this.state.tags.map(tag => (
-          <li key={tag}>{tag}</li>
+          <li 
+          key={tag}
+          style={{ fontSize: 30 }}
+          >{tag}</li>
         ))}{" "}
       </ul>
     );
@@ -33,7 +36,7 @@ class Counter extends Component {
         <button
           onClick={() => this.props.onDelete(this.props.counter.id)}
           style={{ fontSize: 40 }}
-          className="btn btn-secondary btn-sm"
+          className="btn btn-danger btn-sm m-2"
         >
           Delete
         </button>
