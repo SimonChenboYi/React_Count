@@ -12,7 +12,7 @@ class App extends Component {
       { id: 4, value: 0 }
     ]
   };
- 
+
   handleIncrement = counter => {
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
@@ -42,10 +42,21 @@ class App extends Component {
     this.setState({ counters: counters });
   };
 
+  handleAdd = () => {
+    console.log("added!!!!")
+    const counters = [...this.state.counters];
+    let newId = counters[counters.length - 1].id + 1;
+    counters.push({ id: newId, value: 0 });
+    this.setState({ counters: counters });
+  };
+
   render() {
     return (
       <React.Fragment>
-        <Navbar totalCounters={this.state.counters.filter(c => c.value > 0).length} />
+        <Navbar
+          totalCounters={this.state.counters.filter(c => c.value > 0).length}
+          onAdd={this.handleAdd}
+        />
         <main className="container">
           <Counters
             counters={this.state.counters}
