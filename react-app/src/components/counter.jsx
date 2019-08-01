@@ -29,10 +29,19 @@ class Counter extends Component {
         <button
           onClick={() => this.props.onIncrement(this.props.counter)}
           style={{ fontSize: 40 }}
-          className="btn btn-secondary btn-sm"
+          className="btn btn-success btn-sm"
         >
           Increment
         </button>
+
+        <button
+          onClick={() => this.props.onDecrement(this.props.counter)}
+          style={{ fontSize: 40 }}
+          className="btn btn-secondary btn-sm"
+        >
+          Decrement
+        </button>
+
         <button
           onClick={() => this.props.onDelete(this.props.counter.id)}
           style={{ fontSize: 40 }}
@@ -40,6 +49,7 @@ class Counter extends Component {
         >
           Delete
         </button>
+
         <ul>
           {this.state.tags.length === 0 && "please create a new tag!"}
           {this.renderTags()}
